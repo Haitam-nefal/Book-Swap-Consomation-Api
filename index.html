@@ -13,15 +13,30 @@
 
 <body>
 
-    <header class="bg-gray-400/10 fixed w-full">
+    <header class="bg-gray-400/10 fixed w-full shadow-lg ">
         <nav class="flex justify-between items-center min-h-[80px] max-w-6xl mx-auto">
             <div class="logo text-[25px] font-bold">Logo</div>
-            <div class="w-[40%]">
-                <input type="text" name="search" id="search"
-                    class="w-full border-2 border-black outline-none rounded-2xl py-1 px-5">
+            <ul class="flex space-x-5">
+                <li>
+                    <i class="fa-solid fa-house"></i>
+                    <span>Demande d'echange</span>
+                </li>
+                <li>
+                    <i class="fa-solid fa-book"></i>
+                    <span>Livre</span>
+                </li>
+                <li>
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    <span>A Propos</span>
+                </li>
+            </ul>
+            <div class="w-[40%] flex justify-end">
+                <i class="fa-solid fa-circle-user"></i>
+                <i class="fa-solid fa-magnifying-glass"></i>
             </div>
         </nav>
     </header>
+
 
     <script src="js/index.js"></script>
 </body>
