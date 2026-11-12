@@ -13,32 +13,72 @@
 
 <body>
 
-    <header class="bg-gray-400/10 fixed w-full shadow-lg ">
-        <nav class="flex justify-between items-center min-h-[80px] max-w-6xl mx-auto">
-            <div class="logo text-[25px] font-bold">Logo</div>
-            <ul class="flex space-x-5">
-                <li>
-                    <i class="fa-solid fa-house"></i>
-                    <span>Demande d'echange</span>
-                </li>
-                <li>
-                    <i class="fa-solid fa-book"></i>
-                    <span>Livre</span>
-                </li>
-                <li>
-                    <i class="fa-solid fa-circle-exclamation"></i>
-                    <span>A Propos</span>
-                </li>
-            </ul>
-            <div class="w-[40%] flex justify-end">
-                <i class="fa-solid fa-circle-user"></i>
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
-        </nav>
+    <header class="bg-gray-400 fixed w-full shadow-lg z-90" id="navbar">
+        <!--  -->
     </header>
 
 
-    <script src="js/index.js"></script>
+
+    <main class="max-w-6xl mx-auto">
+        <section class="py-25">
+            <form id="rechreche" class="grid grid-cols-3 gap-5 bg-gray-300 shadow-lg mx-2 py-1 px-3">
+                <div class="border-3 border-black max-h-fit rounded-md">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="input_rechreche" placeholder="Titre du Livre..." class="outline-none">
+                </div>
+                <div>
+                    <h4 class="text-[20px] font-semibold">Type d'echange</h4>
+                    <div>
+                        <label for="tous">Tous</label>
+                        <input type="checkbox" name="tous" id="tous">
+                    </div>
+                    <div>
+                        <label for="tous">Definitive</label>
+                        <input type="checkbox" name="" id="">
+                    </div>
+                    <div>
+                        <label for="tous">Temporaire</label>
+                        <input type="checkbox" name="" id="">
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-[20px] font-semibold">Categorie</h4>
+                    <select name="categorie" id="categories">
+                        <!-- <option value="">test</option>
+                        <option value="">test</option>
+                        <option value="">test</option>
+                        <option value="">test</option> -->
+                    </select>
+                </div>
+                <button class="bg-red-600 rounded-lg text-white py-1 px-3 cursor-pointer block min-w-full"
+                    type="submit">Actualiser</button>
+            </form>
+
+
+            <div>
+                <header class="my-10">
+                    <h1 class="text-[30px] font-bold">Demande d'echange de Livre</h1>
+                    <p class="text-[17px] font-semibold max-w-[60%]">Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Porro, recusandae.</p>
+                </header>
+
+                <!-- Spinner -->
+                <div class="text-center min-h-30 flex justify-center items-center" id="loader">
+                    <i class="fa-solid fa-spinner animate-spin"></i>
+                </div>
+                <!-- Affichage Books -->
+                <div id="demande_dechange" class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    <!-- ARTICLE -->
+                </div>
+
+            </div>
+
+
+        </section>
+    </main>
+
+    <script src="js/navbar.js"></script>
+    <script src="js/index.js" type="module"></script>
 </body>
 
 </html>
