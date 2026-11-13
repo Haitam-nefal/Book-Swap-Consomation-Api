@@ -1,8 +1,11 @@
 import { bookTags } from "./BookTags.js";
 
+let dataExchangeRequest = [];
+
 const demande_dechange = document.getElementById("demande_dechange");
 const loader = document.getElementById("loader");
 const Selectedcategories = document.getElementById("categories");
+const errorHandling = document.getElementById("error_handling");
 
 const getCategories = async () => {
   const res = await fetch("http://127.0.0.1:8000/api/v1/categories");
@@ -22,27 +25,34 @@ const AffichageCategories = (categories) => {
 
 const getData = async () => {
   const res = await fetch("http://127.0.0.1:8000/api/v1/exchange-requests");
+  if (!res.ok) throw new Error(res.statusText);
   const data = await res.json();
-  console.log(data.data);
-  AffichageDemandeLivre(data.data);
+  dataExchangeRequest = data.data;
 };
 
 getCategories();
-getData();
 
 // Affichage =>
-const AffichageDemandeLivre = async (data) => {
-  loader.style.display = "none";
-  demande_dechange.innerHTML = ``;
-  data.forEach((book) => {
-    demande_dechange.innerHTML += `
-    <article class="bg-gray-400 py-2 px-4 rounded-xl">
-        ${ToopBook(book.exchange_type, book.start_date, book.end_date)}
-        ${BookInfo(book.book, book.offers_count, book.offers)}
-        ${FooterBook(book.owner)}
-    </article>
-    `;
-  });
+const AffichageDemandeLivre = async () => {
+  try {
+    await getData();
+    demande_dechange.innerHTML = ``;
+    dataExchangeRequest.forEach((book) => {
+      demande_dechange.innerHTML += `
+          <article class="bg-gray-400 py-2 px-4 rounded-xl">
+              ${ToopBook(book.exchange_type, book.start_date, book.end_date)}
+              ${BookInfo(book.book, book.offers_count, book.offers)}
+              ${FooterBook(book.owner)}
+          </article>
+          `;
+    });
+  } catch (err) {
+    console.error(err);
+    errorHandling.classList.remove("hidden");
+    errorHandling.querySelector("#message_error").innerText = err.message;
+  } finally {
+    loader.style.display = "none";
+  }
 };
 
 // TOP BOOK =>
@@ -149,3 +159,5 @@ const FooterBook = (infoOwner) => {
     </div>
     `;
 };
+
+AffichageDemandeLivre();
