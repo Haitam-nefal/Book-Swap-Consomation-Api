@@ -8,6 +8,7 @@
         integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style/style.css">
     <title>BookSwap</title>
 </head>
 
@@ -29,28 +30,26 @@
                 <div>
                     <h4 class="text-[20px] font-semibold">Type d'echange</h4>
                     <div>
-                        <label for="tous">Tous</label>
-                        <input type="checkbox" name="tous" id="tous">
+                        <label for="all">Tous</label>
+                        <input type="checkbox" name="all" id="all" value="all">
                     </div>
                     <div>
-                        <label for="tous">Definitive</label>
-                        <input type="checkbox" name="" id="">
+                        <label for="temporary">Definitive</label>
+                        <input type="checkbox" name="permanent" id="permanent" value="permanent">
                     </div>
                     <div>
-                        <label for="tous">Temporaire</label>
-                        <input type="checkbox" name="" id="">
+                        <label for="permanent">Temporaire</label>
+                        <input type="checkbox" name="temporary" id="temporary" value="temporary">
                     </div>
                 </div>
                 <div>
                     <h4 class="text-[20px] font-semibold">Categorie</h4>
                     <select name="categorie" id="categories">
-                        <!-- <option value="">test</option>
-                        <option value="">test</option>
-                        <option value="">test</option>
-                        <option value="">test</option> -->
+                        <!--  -->
                     </select>
                 </div>
-                <button class="bg-red-600 rounded-lg text-white py-1 px-3 cursor-pointer block min-w-full"
+                <button id="btn-actualiser"
+                    class="bg-red-600 rounded-lg text-white py-1 px-3 cursor-pointer block min-w-full"
                     type="submit">Actualiser</button>
             </form>
 
@@ -69,6 +68,14 @@
                 <!-- Erroro -->
                 <div class="hidden py-5 px-4 bg-red-300 mx-3 rounded-md" id="error_handling">
                     <p id="message_error" class="text-red-800 text-center">Lorem ipsum dolor sit amet.</p>
+                </div>
+                <!-- Affichage de message pour un filtrage makaynche -->
+                <div id="search-invalide"
+                    class="bg-gray-400 shadow-lg py-2 px-5 rounded-lg mx-2 mb-2 flex flex-col justify-center items-center hidden">
+                    <h3 class="text-[30px] font-bold">Serach Invalid !</h3>
+                    <div class="w-[100px] h-[100px]">
+                        <img src="./images/cart.png" alt="empty-cart">
+                    </div>
                 </div>
                 <!-- Affichage Books -->
                 <div id="demande_dechange" class="grid grid-cols-1 lg:grid-cols-2 gap-4">
