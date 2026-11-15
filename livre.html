@@ -1,38 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
-        integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>Livre</title>
+    <link rel="stylesheet" href="style/style.css" />
+    <title>HTM | Catalogue des Livres</title>
 </head>
 
 <body>
 
-    <header class="bg-gray-400 fixed w-full shadow-lg z-90" id="navbar">
-
+    <header class="bg-white/90 backdrop-blur-md border-b border-[#E5E2D9] fixed top-0 w-full z-50" id="navbar">
     </header>
 
-    <main class="max-w-6xl mx-auto py-25">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16">
 
-        <div class="mb-10 border-3 border-black rounded-lg flex items-center px-2">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" name="search_input" id="search_input" placeholder="Titre de Livre"
-                class="outline-none min-w-full px-3">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
+            <div>
+                <h1 class="text-3xl font-extrabold text-[#17385B]">Bibliothèque</h1>
+                <p class="text-slate-600 text-sm mt-1">Explorez l'ensemble des livres disponibles sur la plateforme.</p>
+            </div>
+
+            <div class="w-full md:w-96 relative flex items-center">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 text-slate-400"></i>
+                <input type="text" name="search_input" id="search_input" placeholder="Rechercher par titre de livre..."
+                    class="w-full pl-11 pr-4 py-3 bg-white border border-[#E5E2D9] rounded-xl shadow-sm text-sm text-[#17385B] placeholder-slate-400 focus:outline-none focus:border-[#E38B29] focus:ring-2 focus:ring-[#E38B29]/20 transition-all">
+            </div>
         </div>
 
         <section>
-            <header></header>
             <!-- Spinner -->
-            <div class="text-center min-h-30 flex justify-center items-center" id="loader">
-                <i class="fa-solid fa-spinner animate-spin"></i>
+            <div class="text-center min-h-[250px] flex flex-col justify-center items-center gap-3" id="loader">
+                <i class="fa-solid fa-circle-notch fa-spin text-3xl text-[#E38B29]"></i>
+                <p class="text-sm font-medium text-slate-500">Chargement du catalogue...</p>
             </div>
-            <div id="affichage_books" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- AFFICHAGE BOOK -->
+
+            <div id="affichage_books" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- -->
             </div>
         </section>
     </main>
